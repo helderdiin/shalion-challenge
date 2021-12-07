@@ -47,8 +47,10 @@ export default class OrderStore {
         return prev;
       }, {});
 
-      this.ordersList = ordersList.map((order, i) => ({
+      // Normalizing some "wrong" data from API
+      this.ordersList = ordersList.map((order) => ({
         ...order,
+        total_price: order.total_price || 0,
         price_currency: order.price_currency || PRICE_CURRENCY.DEFAULT,
         stock_info:
           !order.stock_info || order.stock_info === 'Unknown'

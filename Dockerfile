@@ -1,7 +1,7 @@
 # Stage 1 - the build process
 FROM node:14 as build-deps
 WORKDIR /appl
-COPY package.json yarn.lock .npmrc ./
+COPY package.json yarn.lock ./
 RUN yarn
 COPY . ./
 RUN yarn build

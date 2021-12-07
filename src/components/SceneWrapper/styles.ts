@@ -4,9 +4,6 @@ import { getTheme, ifStyle, pxToRem } from '~/utils';
 const sceneSpacing = getTheme('sceneSpacing');
 const largeSpacing = getTheme('largeSpacing');
 const backgroundLight = getTheme('background.light');
-const largeRadius = getTheme('largeRadius');
-const inMediumScreen = getTheme('inMediumScreen');
-const inSmallScreen = getTheme('inSmallScreen');
 const showSideSection = ifStyle('showSideSection');
 
 type Props = {
@@ -16,24 +13,6 @@ type Props = {
 export const ChildrenWrapper = styled.div`
   height: 100%;
   width: 100%;
-  /* width: 85vw;
-  margin: 0 ${sceneSpacing};
-  max-width: ${pxToRem(1400)};
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-  margin-top: ${pxToRem(-24)};
-  ${inMediumScreen} {
-    width: 95vw;
-    margin: ${pxToRem(-24)} ${largeSpacing} 0 ${largeSpacing};
-  }
-  ${inSmallScreen} {
-    width: 95vw;
-    margin: ${pxToRem(-24)} ${largeSpacing} 0 ${largeSpacing};
-  } */
 `;
 
 export const Constrain = styled.div`
@@ -45,7 +24,6 @@ export const Constrain = styled.div`
   flex: 1;
   padding: ${pxToRem(16)} ${largeSpacing};
   background: ${backgroundLight};
-  /* border-radius: ${largeRadius} ${largeRadius} 0 0; */
   z-index: 1;
 `;
 

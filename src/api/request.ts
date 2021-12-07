@@ -24,9 +24,11 @@ const addAuthHeaders = async (
   config: AxiosRequestConfig,
 ): Promise<AxiosRequestConfig & CustomRequest> => {
   const token: Token | null = Storage.getToken();
+
   if (!token || isEmpty(token)) {
     return config;
   }
+
   return {
     ...config,
     headers: {

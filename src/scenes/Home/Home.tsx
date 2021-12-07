@@ -40,7 +40,7 @@ const Home: FC<Props> = ({
       sorter: (a, b) => a.total_price - b.total_price,
     },
     {
-      title: 'Status',
+      title: 'Stock',
       dataIndex: 'display_stock',
       key: 'display_stock',
       filters: [
@@ -66,8 +66,7 @@ const Home: FC<Props> = ({
   const dataSource = orders.map((order) => ({
     ...order,
     display_stock: STOCK_STATUS_TEXT[order.stock_info],
-    display_price: currencyParse(order.total_price || 0), // passar currency type quando voltar a pegar da API
-    total_price: order.total_price || 0,
+    display_price: currencyParse(order.total_price || 0, order.price_currency),
     fetch_datetime: formatToScreenDate(new Date(order.fetch_datetime)),
   }));
 

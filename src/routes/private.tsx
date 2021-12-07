@@ -2,7 +2,6 @@ import React from 'react';
 import { Location } from 'history';
 import { isEmpty } from 'lodash';
 import { Redirect, Route } from 'react-router-dom';
-import { Header } from '~/components';
 import { Routes } from '~/routes';
 import { Storage } from '~/services';
 import { Container, Wrapper } from './styles';
@@ -23,7 +22,6 @@ const PrivateRoute: React.FC<Props> = ({ component: Component, ...rest }) => {
         <>
           {!isEmpty(token) ? (
             <Wrapper>
-              <Header />
               <Container>
                 <Component {...props} />
               </Container>
