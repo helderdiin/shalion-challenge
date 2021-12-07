@@ -1,11 +1,5 @@
 # Shalion - Technical Challenge
 
-# ESTUDAR ESSES PONTOS:
-
-Solidatiry
-pxToRem
-Craco
-
 ## Used technologies:
 
 - React + Mobx
@@ -29,8 +23,7 @@ To start:
 
 ## Core dependencies
 
-This is the Core libraries of the project, developers need to have a understand 
-São as principais dependências do projeto, que precisam ser compreendidas pelo menos mínimamente para entender como esta arquitetura funciona.
+This is the Core libraries of the project, developers need to have a clear understanding of these items:
 
 - [React](https://reactjs.org/)
 - [Mobx](https://mobx.js.org/)
@@ -38,50 +31,18 @@ São as principais dependências do projeto, que precisam ser compreendidas pelo
 
 ### Stores
 
-As `stores` são responsáveis por armazenar o state da aplicação. Qualquer tipo de informação que possa ser utilizada em mais de um container ou component, deve ser armazenada em uma store. Elas também são responsáveis por fazer requests externas através de `services`, que lidam com requisições externas e erro handling. Nenhuma store deve tratar erros; isso é responsabilidade do service e do container que iniciou a requisição
-
-Está sendo utilizando o [Mobx](https://mobx.js.org/) para lidar com as stores. Basta usar os decorators `inject` e `observer` onde deseja injetar uma store e observar suas alterações (geralmente em `containers`).
+The `stores` manage all the state of the application. Any data that need to be used on more than one component, may have to be in the store. And is here that requests need to be called, inside the `actions`.
 
 ### Scenes
 
-São as telas que possuem rotas próprias. São sempre divididas entre `container` e `component`. O container (index.js) faz a conexão com as `stores`, e são responsáveis por toda a lógica da Scene e de passar as informações da store para a interface. Já o `component` (nome da Scene) é responsável pela interface visual.
+Here are the pages of the application. They are split into two main files `container` and `component`. The container (index.ts) calls the store, makes state control using `useState` if needed, and manages most part of the logic inside this scene. The component is where we'll code our UI.
 
 ## Components
 
-Todos os components visuais são declarados neste folder. Botões, checkbox, inputs. Também são declarados components responsáveis por “behaviour”, mesmo sem ter uma interface, como o caso do `FormContainer`, que encapsula comportamentos de formulário vindos Formik a todos os `childrens` que forem passados como props.
+All single components should be in this folder, just like Button, Inputs, Checkbox. If they need some data that are saved on the stores, the scene that calls it needs to pass as props.
 
 ## Utils/Modules
 
-Para facilitar uma possível migração de dependências, todas as dependências são declaradas no arquivo de modules e depois importadas apontando para este arquivo.
+Here we can find some helpers to save time when need some basic functions, enums to add patterns on some string usage, and a bunch of cool stuff.
 
-### Gerador de Scenes e Components
-
-Para facilitar a criação de novas scenes e components temos um gerador que cria a estrutura de pasta e arquivos necessários.
-
-Para gerar uma Scene:
-`yarn generate:scene`
-
-Para Gerar um component
-`yarn generate:component`
-
-### Commits
-
-Os commits devem seguir o seguinte padrão:
-`<type>(scope): <description>`
-
-Sendo que os types podem ser os seguintes:
-`feat: Uma nova feature`
-`fix: Correção de um bug`
-`chore: Uma alteração que não é nem uma nova feature, nem uma correção`
-
-Para auxiliar no processo de commit, é recomendado utilizar o seguinte pacote:
-`yarn global add commitizen`
-
-Em seguida, deve ser iniciado uma única vez:
-`commitizen init cz-conventional-changelog --save-dev --save-exact --yarn`
-
-A partir de agora, para commitar pode ser usado a seguinte sintaxe:
-`git add .`
-`git cz` (Ao invés de git commit -m "...")
-
-Basta seguir as instruções do CLI.
+Modules folder is just a file to not call the dependence directly, it exports the dependence for you.

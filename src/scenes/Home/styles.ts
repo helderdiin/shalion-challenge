@@ -8,7 +8,13 @@ const textDark = getTheme('text.dark');
 
 export const Title = styled.h1``;
 
-export const Wrapper = styled.div`
+export const LoadingWrapper = styled.div`
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+`;
+
+export const ContentWrapper = styled.div`
   flex-direction: column;
 `;
 

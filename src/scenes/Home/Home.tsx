@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import { SceneWrapper } from '~/components';
-import { Chart } from '~/modules';
+import { Chart, ReactLoading } from '~/modules';
 import {
   STOCK_STATUS,
   STOCK_STATUS_TEXT,
   currencyParse,
   formatToScreenDate,
 } from '~/utils';
-import { Table, Title, Wrapper } from './styles';
+import { ContentWrapper, LoadingWrapper, Table, Title } from './styles';
 
 type Props = {
   loading: boolean;
@@ -105,22 +105,28 @@ const Home: FC<Props> = ({
 
   return (
     <SceneWrapper>
-      <Wrapper>
-        <Title>Orders List</Title>
-        <Table columns={columns} dataSource={dataSource} />
-        <Title>Amount of Products</Title>
-        <Chart
-          options={productsChartOptions}
-          series={productsChartSeries}
-          type="area"
-        />
-        <Title>Amount of Products by Retailer</Title>
-        <Chart
-          options={retailersChartOptions}
-          series={retailersChartSeries}
-          type="bar"
-        />
-      </Wrapper>
+      {!loading ? (
+        <ContentWrapper>
+          <Title>Orders List</Title>
+          <Table columns={columns} dataSource={dataSource} />
+          <Title>Amount of Products</Title>
+          <Chart
+            options={productsChartOptions}
+            series={productsChartSeries}
+            type="area"
+          />
+          <Title>Amount of Products by Retailer</Title>
+          <Chart
+            options={retailersChartOptions}
+            series={retailersChartSeries}
+            type="bar"
+          />
+        </ContentWrapper>
+      ) : (
+        <LoadingWrapper>
+          <ReactLoading type="spin" color="#357edd" />
+        </LoadingWrapper>
+      )}
     </SceneWrapper>
   );
 };
