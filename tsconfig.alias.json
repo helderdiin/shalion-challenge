@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": "src",
+    "paths": {
+      "*": ["src/utils/types/*.ts"],
+      "~/*": ["*"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "src/utils/types/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

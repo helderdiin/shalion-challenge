@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-icon.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#212121" />
+    <meta name="handheldFriendly" content="true" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="description"
+      content="Template"
+    />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <title>Shalion Challenge</title>
+    <!-- Fonts Import -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link href="https://unpkg.com/@csstools/normalize.css" rel="stylesheet" />
+  </head>
+  <body>
+    <noscript>Você precisa habilitar o JavaScript para ver este app.</noscript>
+    <div id="root"></div>
+  </body>
+  <style>
+    body {
+      background-color: #212121;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      width: 100%;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      overscroll-behavior: contain;
+      scrollbar-width: none;
+    }
+    html {
+      min-height: 100vh;
+      width: 100%;
+    }
+    #root {
+      min-height: 100vh;
+      width: 100%;
+    }
+    div {
+      display: flex;
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .MuiMenu-list {
+      width: 100% !important;
+    }
+  </style>
+</html>
